@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'account'
+require 'bank'
 
-describe Account do
-  subject { Account.new }
+describe Bank do
+  subject { Bank.new }
 
   describe 'show balance' do
     it 'initialised with a balance of zero' do

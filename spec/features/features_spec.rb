@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'account'
+require 'bank'
 require 'spec_helper'
 
-describe 'Account' do
-  subject { Account.new }
+describe 'Bank' do
+  subject { Bank.new }
 
   feature 'show balance' do
     scenario 'creating a new account with a balance of zero' do

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# Main application interface for user account
-class Account
+# Main application interface
+class Bank
   attr_reader :balance
 
   def initialize
