@@ -41,8 +41,8 @@ describe Bank do
     it 'stores withdrawals' do
       subject.deposit(200)
       subject.withdraw(100)
-      transaction = subject.transactions.last
-      expect(transaction.amount).to eq - 100
+      p transaction = subject.transactions.last
+      expect(transaction.amount).to eq (- 100) 
     end
   end
 end

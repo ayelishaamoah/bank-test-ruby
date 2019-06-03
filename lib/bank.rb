@@ -11,17 +11,27 @@ class Bank
 
   def deposit(amount)
     transaction = Transaction.new(amount)
-    @transactions.push(transaction)
-    @balance += transaction.amount
+    save_transaction(transaction)
+    update_balance(transaction)
   end
 
   def withdraw(amount)
     transaction = Transaction.new(-amount)
-    @transactions.push(transaction)
-    @balance += transaction.amount
+    save_transaction(transaction)
+    update_balance(transaction)
   end
 
   def show_balance
     @balance
+  end
+
+  private
+
+  def save_transaction(transaction)
+    @transactions.push(transaction)
+  end
+
+  def update_balance(transaction)
+    @balance += transaction.amount
   end
 end
