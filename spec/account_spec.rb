@@ -8,3 +8,11 @@ describe 'show balance' do
     expect(account.balance).to eq 0
   end
 end
+
+describe 'deposit' do
+  it 'increased the balance by 100' do
+    account = Account.new
+    account.deposit(100)
+    expect(account.balance).to eq 100
+  end
+end
