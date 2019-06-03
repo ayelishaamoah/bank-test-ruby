@@ -11,6 +11,7 @@ class Bank
 
   def deposit(amount)
     transaction = Transaction.new(amount)
+    @transactions.push(transaction)
     @balance += transaction.amount
   end
 

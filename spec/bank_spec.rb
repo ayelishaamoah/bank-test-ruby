@@ -31,5 +31,11 @@ describe Bank do
     it 'should be empty when the bank is initialized' do
       expect(subject.transactions).to eq []
     end
+
+    it 'stores transactions' do
+      subject.deposit(100)
+      transaction = subject.transactions.first
+      expect(transaction.amount).to eq 100
+    end
   end
 end
