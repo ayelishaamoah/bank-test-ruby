@@ -1,5 +1,11 @@
 class Account
+  attr_reader :balance
+
+  def initialize
+    @balance = 0
+  end
+
   def showBalance
-    return 0
+    return @balance
   end
 end
