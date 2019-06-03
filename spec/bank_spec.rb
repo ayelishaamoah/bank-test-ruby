@@ -26,4 +26,10 @@ describe Bank do
       expect(subject.balance).to eq 80
     end
   end
+
+  describe 'transactions' do
+    it 'should be empty when the bank is initialized' do
+      expect(subject.transactions).to eq []
+    end
+  end
 end
