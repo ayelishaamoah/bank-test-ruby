@@ -18,5 +18,12 @@ describe 'Account' do
       subject.deposit(100)
       expect(subject.show_balance).to eq 100
     end
+
+    # a user can withdraw money from account
+    scenario 'withdrawing money from account' do
+      subject.deposit(100)
+      subject.withdraw(20)
+      expect(subject.show_balance).to eq 80
+    end
   end
 end
