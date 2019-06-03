@@ -5,14 +5,6 @@ Goals for the week:
 - [ ] Feel more confident in your ability to complete a tech test.
 - [ ] Have developed a structured process to approaching complex problems, utilising TDD and good OO design skills.
 
-## Approach
-
-### Planning
-1. Break specification into user stories
-2. Extract nouns and verbs from user stories
-3. Build table of objects (nouns) and methods (verbs)
-4. Draw a domain model diagram that shows how program functions
-
 ## Specification
 
 ### Requirements
@@ -37,6 +29,15 @@ date       || credit     || debit   || balance
 10/01/2012 || 1000.00    ||         || 1000.00
 ```
 
+## Approach
+
+### Planning
+1. Break specification into user stories
+2. Extract nouns and verbs from user stories
+3. Build table of objects (nouns) and methods (verbs)
+4. Draw a domain model diagram that shows how program functions
+
+
 ### User Stories
 ```
 As a hard working person
@@ -51,3 +52,10 @@ As a hard working person
 So that I can keep on top of my finances
 I would like to print a detailed account statement
 ```
+
+### Program Objects and Methods
+| Objects (nouns)  |  Methods (verbs) |
+|---|---|
+|Account   |deposit|
+| |withdraw |
+|Account Statement| print Statement | 
