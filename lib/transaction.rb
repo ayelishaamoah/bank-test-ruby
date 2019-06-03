@@ -4,8 +4,8 @@
 class Transaction
   attr_reader :amount, :date
 
-  def initialize(amount)
+  def initialize(amount, date = Time.now)
     @amount = amount
-    @date = Time.now
+    @date = date
   end
 end

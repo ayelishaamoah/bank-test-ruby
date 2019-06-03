@@ -9,11 +9,13 @@ class Bank
   end
 
   def deposit(amount)
-    @balance += amount
+    transaction = Transaction.new(amount)
+    @balance += transaction.amount
   end
 
   def withdraw(amount)
-    @balance -= amount
+    transaction = Transaction.new(-amount)
+    @balance += transaction.amount
   end
 
   def show_balance

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'bank'
+require 'transaction'
 
 describe Bank do
   subject { Bank.new }
