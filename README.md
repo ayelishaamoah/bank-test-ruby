@@ -59,3 +59,29 @@ I would like to print a detailed account statement
 |Account   |deposit|
 | |withdraw |
 |Account Statement| print Statement | 
+
+## Running the program
+
+This program is run using irb - the below path is relative to the main app folder:
+```
+$ irb -r './lib/bank.rb'
+```
+
+### How to us the program
+```
+2.6.0 :001 > bank = Bank.new
+ => #<Bank:0x00007fba56823c38 @balance=0, @transactions=[], @transaction=Transaction>
+2.6.0 :002 > bank.deposit(1000)
+ => 1000
+2.6.0 :003 > bank.withdraw(500)
+ => 500
+2.6.0 :004 > bank.print_statement
+date       || credit    || debit     || balance
+04/06/2019 ||           || 500.00    || 500.00
+04/06/2019 || 1000.00   ||           || 1000.00
+ => nil
+2.6.0 :005 > quit
+```
+
+### Running the tests
+From the root folder run the command ```rspec``` 
