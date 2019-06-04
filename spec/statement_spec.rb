@@ -12,7 +12,6 @@ describe Statement do
 
   describe 'print statement' do
     it 'shows a formatted list of transactions' do
-      p transactions
       expect { subject.print_statement(transactions) }.to output(<<~PRINTOUT
         date       || credit    || debit     || balance
         04/06/2019 ||           || 500.00    || 1500.00

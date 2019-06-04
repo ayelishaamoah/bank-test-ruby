@@ -4,6 +4,7 @@ require 'bank'
 
 describe Bank do
   subject { Bank.new }
+  let (:statement) { double(:statement) }
 
   describe 'initialize' do
     it 'should be empty when the bank is initialized' do
@@ -45,6 +46,10 @@ describe Bank do
 
   describe 'print statement' do
     it 'shows a formatted list of transactions' do
+      subject.deposit(200)
+      subject.withdraw(100)
+      expect(statement).to receive(:print_statement).with(subject.transactions)
+      subject.print_statement(statement)
     end
   end
 end

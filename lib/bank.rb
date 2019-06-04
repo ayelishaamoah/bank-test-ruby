@@ -1,4 +1,5 @@
 require_relative './transaction'
+require_relative './statement'
 # frozen_string_literal: true
 
 # Main application interface
@@ -25,6 +26,10 @@ class Bank
 
   def show_balance
     @balance
+  end
+
+  def print_statement(statement = Statement.new)
+    statement.print_statement(@transactions)
   end
 
   private
