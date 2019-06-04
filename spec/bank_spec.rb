@@ -35,14 +35,14 @@ describe Bank do
     it 'stores deposits' do
       subject.deposit(100)
       transaction = subject.transactions.first
-      expect(transaction.amount).to eq 100
+      expect(transaction.type).to eq 'credit'
     end
 
     it 'stores withdrawals' do
       subject.deposit(200)
       subject.withdraw(100)
-      p transaction = subject.transactions.last
-      expect(transaction.amount).to eq(- 100)
+      transaction = subject.transactions.last
+      expect(transaction.type).to eq 'debit'
     end
   end
 end

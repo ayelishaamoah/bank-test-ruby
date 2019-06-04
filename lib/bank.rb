@@ -16,7 +16,7 @@ class Bank
   end
 
   def withdraw(amount)
-    transaction = Transaction.new(-amount, 'debit', @balance)
+    transaction = Transaction.new(amount, 'debit', @balance)
     save_transaction(transaction)
     update_balance(transaction)
   end
@@ -32,6 +32,6 @@ class Bank
   end
 
   def update_balance(transaction)
-    @balance += transaction.amount
+    @balance = transaction.current_balance
   end
 end
