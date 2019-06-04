@@ -62,6 +62,13 @@ I would like to print a detailed account statement
 
 ## Running the program
 
+Getting set up on your machine:
+```
+$ git clone https://github.com/ayelishaamoah/bank-test-ruby.git
+$ bundle install
+```
+
+
 This program is run using irb - the below path is relative to the main app folder:
 ```
 $ irb -r './lib/bank.rb'
