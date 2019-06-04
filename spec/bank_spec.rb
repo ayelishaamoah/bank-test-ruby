@@ -4,7 +4,7 @@ require 'bank'
 
 describe Bank do
   subject { Bank.new }
-  let (:statement) { double(:statement) }
+  let(:statement) { double(:statement) }
 
   describe 'initialize' do
     it 'should be empty when the bank is initialized' do
