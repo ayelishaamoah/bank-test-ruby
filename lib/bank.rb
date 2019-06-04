@@ -10,15 +10,11 @@ class Bank
   end
 
   def deposit(amount)
-    transaction = Transaction.new(amount, 'credit', @balance)
-    save_transaction(transaction)
-    update_balance(transaction)
+    create_transaction(amount, 'credit')
   end
 
   def withdraw(amount)
-    transaction = Transaction.new(amount, 'debit', @balance)
-    save_transaction(transaction)
-    update_balance(transaction)
+    create_transaction(amount, 'debit')
   end
 
   def show_balance
@@ -26,6 +22,12 @@ class Bank
   end
 
   private
+
+  def create_transaction(amount, type)
+    transaction = Transaction.new(amount, type, @balance)
+    save_transaction(transaction)
+    update_balance(transaction)
+  end
 
   def save_transaction(transaction)
     @transactions.push(transaction)
