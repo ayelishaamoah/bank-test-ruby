@@ -23,4 +23,9 @@ describe Transaction do
     transaction = Transaction.new(200, 'debit', 1000)
     expect(transaction.current_balance).to eq 800
   end
+
+  it 'credits the account balance' do
+    transaction = Transaction.new(200, 'credit', 1000)
+    expect(transaction.current_balance).to eq 1200
+  end
 end

@@ -8,6 +8,6 @@ class Transaction
     @amount = amount
     @date = date
     @type = type
-    @current_balance = account_balance - amount
+    @current_balance = type == 'debit' ? (account_balance - amount) : (account_balance + amount)
   end
 end
