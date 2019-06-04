@@ -18,5 +18,4 @@ class Transaction
       account_balance + @amount
     end
   end
-  
 end
