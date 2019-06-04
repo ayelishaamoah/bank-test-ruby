@@ -10,13 +10,13 @@ class Bank
   end
 
   def deposit(amount)
-    transaction = Transaction.new(amount, 'credit')
+    transaction = Transaction.new(amount, 'credit', @balance)
     save_transaction(transaction)
     update_balance(transaction)
   end
 
   def withdraw(amount)
-    transaction = Transaction.new(-amount, 'debit')
+    transaction = Transaction.new(-amount, 'debit', @balance)
     save_transaction(transaction)
     update_balance(transaction)
   end
