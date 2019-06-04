@@ -2,22 +2,18 @@
 
 # Statement is used by the Bank class to print a statement
 class Statement
-  def initialize(transactions)
-    @transactions = transactions
-  end
-
-  def print_statement
+  def print_statement(transactions)
     header = ['date'.ljust(11), ' credit'.ljust(11), ' debit'.ljust(11),
               ' balance'].join('||')
-    transaction_list = format_transactions
+    transaction_list = format_transactions(transactions)
     statement = [header, transaction_list].join("\n")
     puts statement
   end
 
   private
 
-  def format_transactions
-    @transactions.reverse.map do |transaction|
+  def format_transactions(transactions)
+    transactions.reverse.map do |transaction|
       credit = format_credit(transaction)
       debit = format_debit(transaction)
       [

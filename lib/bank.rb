@@ -5,17 +5,22 @@ require_relative './transaction'
 class Bank
   attr_reader :balance, :transactions
 
-  def initialize
+  def initialize(transaction = Transaction)
     @balance = 0
     @transactions = []
+    @transaction = transaction
   end
 
   def deposit(amount)
-    create_transaction(amount, 'credit')
+    new_transaction = create_transaction(amount, 'credit')
+    save_transaction(new_transaction)
+    update_balance(new_transaction)
   end
 
   def withdraw(amount)
-    create_transaction(amount, 'debit')
+    new_transaction = create_transaction(amount, 'debit')
+    save_transaction(new_transaction)
+    update_balance(new_transaction)
   end
 
   def show_balance
@@ -25,9 +30,7 @@ class Bank
   private
 
   def create_transaction(amount, type)
-    transaction = Transaction.new(amount, type, @balance)
-    save_transaction(transaction)
-    update_balance(transaction)
+    @transaction.new(amount, type, @balance)
   end
 
   def save_transaction(transaction)
