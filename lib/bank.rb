@@ -1,8 +1,6 @@
 require_relative './transaction'
 require_relative './statement'
-# frozen_string_literal: true
 
-# Main application interface
 class Bank
   attr_reader :balance, :transactions
 

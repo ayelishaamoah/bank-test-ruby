@@ -1,6 +1,3 @@
-# frozen_string_literal: true
-
-# Statement is used by the Bank class to print a statement
 class Statement
   def print_statement(transactions)
     @transactions = transactions
