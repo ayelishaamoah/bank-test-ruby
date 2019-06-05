@@ -5,14 +5,17 @@ class Transaction
     @amount = amount
     @date = date
     @type = type
-    @current_balance = update_balance(account_balance)
+    @current_balance = account_balance
+    update_balance
   end
 
-  def update_balance(account_balance)
+  private
+  
+  def update_balance
     if @type == 'debit'
-      account_balance - @amount
+      @current_balance -= @amount
     elsif @type == 'credit'
-      account_balance + @amount
+      @current_balance += @amount
     end
   end
 end
