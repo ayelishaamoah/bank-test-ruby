@@ -6,41 +6,16 @@ describe Bank do
   subject { Bank.new }
   let(:statement) { double(:statement) }
 
-  describe 'initialize' do
-    it 'should be empty when the bank is initialized' do
-      expect(subject.transactions).to eq []
-    end
-
-    it 'initialised with a balance of zero' do
-      expect(subject.balance).to eq 0
-    end
-  end
-
   describe 'deposit' do
     it 'increased the balance by 100' do
-      subject.deposit(100)
-      expect(subject.balance).to eq 100
-    end
-
-    it 'stores deposits' do
-      subject.deposit(100)
-      transaction = subject.transactions.first
-      expect(transaction.type).to eq 'credit'
+      expect(subject.deposit(100)).to eq 100
     end
   end
 
   describe 'withdraw' do
     it 'decreases the balance by 20' do
       subject.deposit(100)
-      subject.withdraw(20)
-      expect(subject.balance).to eq 80
-    end
-
-    it 'stores withdrawals' do
-      subject.deposit(200)
-      subject.withdraw(100)
-      transaction = subject.transactions.last
-      expect(transaction.type).to eq 'debit'
+      expect(subject.withdraw(20)).to eq 80
     end
   end
 
@@ -48,7 +23,7 @@ describe Bank do
     it 'shows a formatted list of transactions' do
       subject.deposit(200)
       subject.withdraw(100)
-      expect(statement).to receive(:print_statement).with(subject.transactions)
+      expect(statement).to receive(:print_statement)
       subject.print_statement(statement)
     end
   end

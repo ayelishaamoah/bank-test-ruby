@@ -2,10 +2,9 @@ require_relative './transaction'
 require_relative './statement'
 
 class Bank
-  attr_reader :balance, :transactions
 
-  def initialize(transaction = Transaction)
-    @balance = 0
+  def initialize(transaction: Transaction, starting_balance: 0)
+    @balance = starting_balance
     @transactions = []
     @transaction = transaction
   end
