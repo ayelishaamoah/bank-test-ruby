@@ -5,17 +5,21 @@ require 'bank'
 describe Bank do
   subject { Bank.new }
   let(:statement) { double(:statement) }
+  date = Time.now
+  let(:deposit) { double(:transaction, date: date, amount: 500, type: 'credit', current_balance: 1500) }
+  let(:credit) { double(:transaction, date: date, amount: 800, type: 'debit', current_balance: 2000) }
 
   describe 'deposit' do
     it 'increased the balance by 100' do
-      expect(subject.deposit(100)).to eq 100
+      allow(subject).to receive(:create_transaction).and_return(deposit)
+      expect(subject.deposit(500)).to eq 1500
     end
   end
 
   describe 'withdraw' do
     it 'decreases the balance by 20' do
-      subject.deposit(100)
-      expect(subject.withdraw(20)).to eq 80
+      allow(subject).to receive(:create_transaction).and_return(credit)
+      expect(subject.withdraw(800)).to eq 2000
     end
   end
 
